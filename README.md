@@ -14,12 +14,12 @@ Hacer uso al menos de los siguientes **elementos**:
 -   *1 Combobox*
 -   *1 JSpinner*
 
-Añade igualmente una **barra de estado inferior** haciendo uso de un *JPane* la cual usaremos posteriormente.
+Añade igualmente una **barra de estado inferior** haciendo uso de un *JPane*, la cual usaremos posteriormente.
 
 ![](media/b659313c2f89bf08a4f35281a33b65c3.png)
 
 ## Parte 2
 
-Mejora el ejercicio anterior agregando una validación en tiempo real del  *JTextField* del correo en el que verifique que esté correctamente formado. 
+Mejora el ejercicio anterior agregando una **validación** en tiempo real del  *JTextField* del correo en el que verifique que esté correctamente formado. 
 - Mientras la validación no sea correcta deberá de mostrar el cuadro de texto con un borde en color rojo.
 - Al validarse correctamente, deberá mostrar un icono de un tic de validación en verde a la derecha y un mensaje en la barra de estado inferior.

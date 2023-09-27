@@ -1,4 +1,4 @@
-# Práctica 2.4 – Elementos interfaz duplicada
+# Práctica 2.4 – Elementos interfaz mixta
 
 ## Parte 1
 

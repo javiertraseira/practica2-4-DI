@@ -6,13 +6,14 @@ Crear una interfaz con los elementos indicados y con ellos duplicados, en la que
 
 Para ello habrá que hacer uso de los **eventos** relacionados con cada componente para duplicarlos en su correspondiente elemento. 
 
-Hacer uso al menos de los siguientes **elementos**:
+Hará uso de los siguientes **controles** clásicos de una interfaz:
 
 -   *2 JTextField*
 -   *3 Radiobutton*
 -   *3 Checkbox*
 -   *1 Combobox*
 -   *1 JSpinner*
+-   *1 JToggleButton*
 
 Añade igualmente una **barra de estado inferior** haciendo uso de un *JPane*, la cual usaremos posteriormente.
 
@@ -20,6 +21,6 @@ Añade igualmente una **barra de estado inferior** haciendo uso de un *JPane*, l
 
 ## Parte 2
 
-Mejora el ejercicio anterior agregando una **validación** en tiempo real del  *JTextField* del correo en el que verifique que esté correctamente formado. 
-- Mientras la validación no sea correcta deberá de mostrar el cuadro de texto con un borde en color rojo.
-- Al validarse correctamente, deberá mostrar un icono de un tic de validación en verde a la derecha y un mensaje en la barra de estado inferior.
+Mejora el ejercicio anterior agregando una **validación** en tiempo real del *JTextField* del **correo** en el que verifique que esté correctamente formado. 
+- Mientras la validación del correo no sea correcta deberá de mostrar el cuadro de texto con un borde en color rojo.
+- Al validarse correctamente, deberá mostrar un **icono** de un tic de validación en verde a la derecha y un mensaje en la **barra de estado** inferior.

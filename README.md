@@ -6,7 +6,7 @@ Crear una interfaz mixta con los elementos indicados y con ellos duplicados en e
 
 Para ello habrá que hacer uso de los **eventos** relacionados con cada componente, para duplicarlos en su correspondiente elemento. 
 
-Se hará uso de los siguientes **controles** clásicos de una interfaz:
+Se hará uso de los siguientes **controles clásicos** de una interfaz:
 
 -   *2 Campos de texto (JTextField)*
 -   *3 Radio buttons (JRadiobutton)*

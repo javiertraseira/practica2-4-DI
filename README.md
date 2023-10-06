@@ -14,6 +14,7 @@ Hará uso de los siguientes **controles** clásicos de una interfaz:
 -   *1 Combobox*
 -   *1 JSpinner*
 -   *1 JToggleButton*
+-   *1 JSlider*
 
 Añade igualmente una **barra de estado inferior** haciendo uso de un *JPane*, la cual usaremos posteriormente.
 

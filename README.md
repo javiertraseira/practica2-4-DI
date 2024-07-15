@@ -38,4 +38,4 @@ Mejora el ejercicio anterior agregando una **validación** en tiempo real del ca
 | 05             | Verificar Spinner (JSpinner)             | Modificar Spinner                | Se duplican en la otra mitad                                                     | OK/No cumple|
 | 06             | Verificar Barra deslizadora              | Deslizar barra                   | Se duplican en la otra mitad                                                     | OK/No cumple|
 | 07             | Verificar Toggle Botón (JToggleButton)   | Pulsar botón                     | Se duplican en la otra mitad                                                     | OK/No cumple|
-| 08             | Validación campo correo                  | Escribir un correo electrónico usando su formato con @ | Se valida mostrando un borde en color rojo hasta que su formato sea correcto | OK/No cumple|
+| 08             | Validación campo correo                  | Escribir un correo electrónico usando su formato con @ | Se valida mostrando un borde en color rojo hasta que su formato sea correcto. | OK/No cumple|

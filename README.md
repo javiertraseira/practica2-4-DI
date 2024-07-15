@@ -26,3 +26,16 @@ Añade igualmente una **barra de estado inferior** haciendo uso de un *JPane*, l
 Mejora el ejercicio anterior agregando una **validación** en tiempo real del campo de texto del **correo** en el que verifique que esté correctamente formado. 
 - Mientras la validación del correo no sea correcta deberá de mostrar el cuadro de texto con un **borde en color rojo**.
 - Al validarse correctamente, deberá mostrar un **icono** de un tic de validación en verde a la derecha y un mensaje en la **barra de estado** inferior.
+
+## Pruebas (testing) 
+
+| ID Caso Prueba | Descripción Caso de Prueba               | Entrada                          | Salida Esperada                                                                 | Resultado   |
+|----------------|-----------------------------------------|----------------------------------|---------------------------------------------------------------------------------|-------------|
+| 01             | Verificar campos de texto (JTextField)  | Escribir texto en los campos     | Se duplican en la otra mitad                                                     | OK/No cumple|
+| 02             | Verificar Radio Buttons (JRadiobutton)   | Modificar Radio buttons          | Se duplican en la otra mitad                                                     | OK/No cumple|
+| 03             | Verificar Check Buttons (JCheckbox)      | Modificar Check Box              | Se duplican en la otra mitad                                                     | OK/No cumple|
+| 04             | Verificar Listado (JCombobox)            | Modificar Combobox               | Se duplican en la otra mitad                                                     | OK/No cumple|
+| 05             | Verificar Spinner (JSpinner)             | Modificar Spinner                | Se duplican en la otra mitad                                                     | OK/No cumple|
+| 06             | Verificar Barra deslizadora              | Deslizar barra                   | Se duplican en la otra mitad                                                     | OK/No cumple|
+| 07             | Verificar Toggle Botón (JToggleButton)   | Pulsar botón                     | Se duplican en la otra mitad                                                     | OK/No cumple|
+| 08             | Validación campo correo                  | Escribir un correo electrónico usando su formato con @ | Se valida mostrando un borde en color rojo hasta que su formato sea correcto | OK/No cumple|

@@ -1,5 +1,7 @@
 # Práctica 2.4 – Elementos interfaz mixta
 
+Crea un proyecto llamado *practica2-4* en la carpeta SOL de github. Puedes utilizar *branches* para delimitar los cambios que vayas haciendo.
+
 ## Parte 1
 
 Crear una interfaz mixta con los elementos indicados y con ellos duplicados en espejo, en la que los cambios en la primera parte de la interfaz, sea una imagen para la otra mitad de forma inmediata, excepto al primer campo de texto, que deberá mostrar el duplicado con el texto en *orden inverso*.
@@ -38,4 +40,5 @@ Mejora el ejercicio anterior agregando una **validación** en tiempo real del ca
 | 05             | Verificar Spinner (JSpinner)             | Modificar Spinner                | Se duplican en la otra mitad                                                     | OK/No cumple|
 | 06             | Verificar Barra deslizadora              | Deslizar barra                   | Se duplican en la otra mitad                                                     | OK/No cumple|
 | 07             | Verificar Toggle Botón (JToggleButton)   | Pulsar botón                     | Se duplican en la otra mitad                                                     | OK/No cumple|
-| 08             | Validación campo correo                  | Escribir un correo electrónico usando su formato con @ | Se valida mostrando un borde en color rojo hasta que su formato sea correcto. | OK/No cumple|
+| 08             | Validación campo correo                  | Escribir un correo electrónico en formato incorrecto | Se muestra un borde en color rojo hasta que su formato sea correcto. | OK/No cumple|
+| 09             | Validación campo correo                  | Escribir un correo electrónico usando su formato con @ | Se valida mostrando un icono verde y un mensaje en la barra de estado. | OK/No cumple|

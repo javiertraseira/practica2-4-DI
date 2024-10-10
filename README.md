@@ -34,7 +34,7 @@ Mejora el ejercicio anterior agregando una **validación** en tiempo real del ca
 | ID Caso Prueba | Descripción Caso de Prueba               | Entrada                          | Salida Esperada                                                                 | Resultado   |
 |----------------|-----------------------------------------|----------------------------------|---------------------------------------------------------------------------------|-------------|
 | 01             | Verificar campos de texto (JTextField)  | Escribir texto en los campos     | Se duplican en la otra mitad                                                     | OK/No cumple|
-| 02             | Verificar Radio Buttons (JRadiobutton)   | Modificar Radio buttons          | Se duplican en la otra mitad                                                     | OK/No cumple|
+| 02             | Verificar Radio Buttons (JRadiobutton)   | Modificar Radio buttons          | Se duplican en la otra mitad y se seleccionan alternativamente en grupo                                                     | OK/No cumple|
 | 03             | Verificar Check Buttons (JCheckbox)      | Modificar Check Box              | Se duplican en la otra mitad                                                     | OK/No cumple|
 | 04             | Verificar Listado (JCombobox)            | Modificar Combobox               | Se duplican en la otra mitad                                                     | OK/No cumple|
 | 05             | Verificar Spinner (JSpinner)             | Modificar Spinner                | Se duplican en la otra mitad                                                     | OK/No cumple|

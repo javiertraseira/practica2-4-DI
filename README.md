@@ -36,6 +36,8 @@ Mejora el ejercicio anterior agregando lo siguiente:
     - El botón redondo deberá de tener forma redonda.
     - El botón ayuda deberá mostrar un icono de ayuda.
 
+![](media/b659313c2f89bf08a4f35281a33b65c4.png)
+
 ## Pruebas (testing) 
 
 | ID Caso Prueba | Descripción Caso de Prueba               | Entrada                          | Salida Esperada                                                                 | Resultado   |

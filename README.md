@@ -18,7 +18,6 @@ Se hará uso de los siguientes **controles clásicos** de una interfaz:
 -   *1 Listado (JCombobox)*
 -   *1 Barra deslizadora (JSlider)*
 -   *1 JSpinner*
--   *1 JSplitPane*
 
 
 ![](media/b659313c2f89bf08a4f35281a33b65c3.png)
@@ -27,11 +26,13 @@ Se hará uso de los siguientes **controles clásicos** de una interfaz:
 
 Mejora el ejercicio anterior agregando lo siguiente:
 - Agrega un menú superior con las opciones *Archivo* y *Edición* y una **barra de estado inferior** haciendo uso de un *JPane*.
+    - El menú Edición deberá tener una entrada para 'borrar todo' que resetea el contenido.
+- Agrega un *1 JSplitPane* con dos colores que se duplique y muestra tambíen el porcentaje de la *JSlider* al moverse.   
 - Agrega una **validación** en tiempo real del campo de texto del **correo** en el que verifique que esté correctamente formado. 
     - Mientras la validación del correo no sea correcta deberá de mostrar el cuadro de texto con un **borde en color rojo**.
     - Al validarse correctamente, deberá mostrar un **JCheckbox** marcado y un mensaje en la **barra de estado** inferior.
-- Modifica las propiedades de los botones Redondo, ayuda, y las propiedades del JPassWordField utilizando propiedades de Flatlaf:
-    - El campo contraseña deberá mostrar la contraseña.
+- Modifica las propiedades de los botones Redondo, ayuda, y las propiedades del JPassWordField utilizando propiedades de **Flatlaf**:
+    - El campo contraseña deberá tener un botón integrado para mostrar su contraseña.
     - El botón redondo deberá de tener forma redonda.
     - El botón ayuda deberá mostrar un icono de ayuda.
 

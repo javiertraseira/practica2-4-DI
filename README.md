@@ -20,14 +20,13 @@ Se hará uso de los siguientes **controles clásicos** de una interfaz:
 -   *1 JSpinner*
 -   *1 JSplitPane*
 
-Añade igualmente una **barra de estado inferior** haciendo uso de un *JPane*, la cual usaremos posteriormente.
 
 ![](media/b659313c2f89bf08a4f35281a33b65c3.png)
 
 ## Parte 2
 
 Mejora el ejercicio anterior agregando lo siguiente:
-- Agrega un menú superior con las opciones *Archivo* y *Edición*
+- Agrega un menú superior con las opciones *Archivo* y *Edición* y una **barra de estado inferior** haciendo uso de un *JPane*.
 - Agrega una **validación** en tiempo real del campo de texto del **correo** en el que verifique que esté correctamente formado. 
     - Mientras la validación del correo no sea correcta deberá de mostrar el cuadro de texto con un **borde en color rojo**.
     - Al validarse correctamente, deberá mostrar un **JCheckbox** marcado y un mensaje en la **barra de estado** inferior.

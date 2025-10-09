@@ -36,6 +36,12 @@ Mejora el ejercicio anterior agregando lo siguiente:
     - El botón redondo deberá de tener forma redonda.
     - El botón ayuda deberá mostrar un icono de ayuda.
 
+    ```java
+    // para hacer un botón redondo o mostrar un botón de ayuda de entre distintas  propiedades de Flatlaf
+    boton.putClientProperty(FlatClientProperties.BUTTON_TYPE, FlatClientProperties.BUTTON_TYPE_ROUND_RECT); 
+    boton_help.putClientProperty(FlatClientProperties.BUTTON_TYPE, FlatClientProperties.BUTTON_TYPE_HELP);
+    ````
+
 ![](media/b659313c2f89bf08a4f35281a33b65c4.png)
 
 ## Pruebas (testing) 

@@ -11,13 +11,14 @@ Para ello habrá que hacer uso de los **eventos** relacionados con cada componen
 Se hará uso de los siguientes **controles clásicos** de una interfaz:
 
 -   *2 Campos de texto (JTextField)*
+-   *1 Campo de Password (JPasswordField)*
+-   *3 Botones (JButtons)*
 -   *3 Radio buttons (JRadiobutton)*
 -   *3 Casillas verificación (JCheckbox)*
 -   *1 Listado (JCombobox)*
 -   *1 Barra deslizadora (JSlider)*
 -   *1 JSpinner*
--   *1 JToggleButton*
-
+-   *1 JSplitPane*
 
 Añade igualmente una **barra de estado inferior** haciendo uso de un *JPane*, la cual usaremos posteriormente.
 
@@ -25,9 +26,15 @@ Añade igualmente una **barra de estado inferior** haciendo uso de un *JPane*, l
 
 ## Parte 2
 
-Mejora el ejercicio anterior agregando una **validación** en tiempo real del campo de texto del **correo** en el que verifique que esté correctamente formado. 
-- Mientras la validación del correo no sea correcta deberá de mostrar el cuadro de texto con un **borde en color rojo**.
-- Al validarse correctamente, deberá mostrar un **icono** de un tic de validación en verde a la derecha y un mensaje en la **barra de estado** inferior.
+Mejora el ejercicio anterior agregando lo siguiente:
+- Agrega un menú superior con las opciones *Archivo* y *Edición*
+- Agrega una **validación** en tiempo real del campo de texto del **correo** en el que verifique que esté correctamente formado. 
+    - Mientras la validación del correo no sea correcta deberá de mostrar el cuadro de texto con un **borde en color rojo**.
+    - Al validarse correctamente, deberá mostrar un **JCheckbox** marcado y un mensaje en la **barra de estado** inferior.
+- Modifica las propiedades de los botones Redondo, ayuda, y las propiedades del JPassWordField utilizando propiedades de Flatlaf:
+    - El campo contraseña deberá mostrar la contraseña.
+    - El botón redondo deberá de tener forma redonda.
+    - El botón ayuda deberá mostrar un icono de ayuda.
 
 ## Pruebas (testing) 
 

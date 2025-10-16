@@ -2,7 +2,7 @@
 
 El objetivo de esta práctica es profundizar en el manejo de los componentes clásicos de Swing y en la gestión de eventos para construir una interfaz gráfica interactiva y simétrica, aplicando además el uso de la librería FlatLaf para personalizar la apariencia visual.
 
-Crea un proyecto llamado *practica2-4* en la carpeta SOL de github. Puedes utilizar *branches* para delimitar los cambios que vayas haciendo.
+Crea un proyecto llamado *practica2-4* en la carpeta SOL de github. Utiliza *branches* para delimitar los cambios que vayas haciendo.
 
 ## Parte 1
 

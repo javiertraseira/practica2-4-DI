@@ -1,70 +1,140 @@
-# Práctica 2.4 – Elementos interfaz mixta
+# Práctica 2.5 Generador de números aleatorios
 
-El objetivo de esta práctica es profundizar en el manejo de los componentes clásicos de Swing y en la gestión de eventos para construir una interfaz gráfica interactiva y simétrica, aplicando además el uso de la librería FlatLaf para personalizar la apariencia visual.
+El objetivo de esta práctica es la de diseñar y desarrollar una aplicación gráfica que permita generar números aleatorios dentro de un rango definido por el usuario, aplicando los principios de separación de lógica en paquetes (Modelo y VistaControlador) y buenas prácticas de organización en proyectos Java. Además se aprenderá a crear pruebas automatizadas para testear apartados de la interfaz.
 
-Crea un proyecto llamado *practica2-4* en la carpeta SOL de github. Utiliza *branches* para delimitar los cambios que vayas haciendo.
+Crea un proyecto llamado *practica2-5* en la carpeta SOL de github. Utiliza *branches* para delimitar los cambios que vayas haciendo.
 
 ## Parte 1
 
-Crear una interfaz mixta utilizando *FlatLaf* con los elementos indicados y con ellos duplicados en espejo, en la que los cambios en la primera parte de la interfaz, sea una imagen para la otra mitad de forma inmediata, excepto al primer campo de texto, que deberá mostrar el duplicado con el texto en *orden inverso*.
+Crear una interfaz mixta utilizando *FlatLaf* con los elementos indicados para un generador de números aleatorios gráfico. Utiliza el elemento *JSpinner* que mostrará el número aleatorio generado entre esos dos números en un campo *JTextField* al pulsar el botón generar.
 
-Para ello habrá que hacer uso de los **eventos** relacionados con cada componente, para duplicarlos en su correspondiente elemento. 
+La ventana deberá tener además un **menú** con los elementos Fichero y Edición. El menú fichero deberá tener por el momento un elemento salir y el menú *Edición* un elemento que permita reiniciar el contenido de los campos de la ventana.
 
-Se hará uso de los siguientes **controles clásicos** de una interfaz:
+Ayúdate de la función `Math.random()` entre dos números o de la clase `radom` así como de una **clase auxiliar** para realizar dichos cálculos.
 
--   *2 Campos de texto (JTextField)*
--   *1 Campo de Password (JPasswordField)*
--   *3 Botones (JButtons)*
--   *3 Radio buttons (JRadiobutton)*
--   *3 Casillas verificación (JCheckbox)*
--   *1 Listado (JCombobox)*
--   *1 Barra deslizadora (JSlider)*
--   *1 JSpinner*
+```java
+Math.random() * (max - min + 1) + (min)
+```
 
+```java
+Random rnd = new Random();
+rnd.nextDouble() * max + min
 
-![](media/b659313c2f89bf08a4f35281a33b65c3.png)
+```
+
+Verifica dónde se crea el fichero de empaquetado del proyecto `jar` al contruir el proyecto y ejecútalo desde la consola usando los comandos adecuados.
+
+![](media/ba18dcfdd7fd2df3ed8dfe1cefa04f24.png)
 
 ## Parte 2
 
-Mejora el ejercicio anterior agregando lo siguiente:
-- Agrega un menú superior con las opciones *Archivo* y *Edición* y una **barra de estado inferior** haciendo uso de un *JPane*.
-    - El menú Edición deberá tener una entrada para 'borrar todo' que resetea el contenido.
-- Agrega un *1 JSplitPane* con dos colores que se duplique y muestra tambíen el porcentaje de la *JSlider* al moverse.   
-- Agrega una **validación** en tiempo real del campo de texto del **correo** en el que verifique que esté correctamente formado. 
-    - Mientras la validación del correo no sea correcta deberá de mostrar el cuadro de texto con un **borde en color rojo**.
-    - Al validarse correctamente, deberá mostrar un **JCheckbox** marcado y un mensaje en la **barra de estado** inferior.
-- Modifica las propiedades de los botones Redondo, ayuda, y las propiedades del JPassWordField utilizando propiedades de **Flatlaf**:
-    - El campo contraseña deberá tener un botón integrado para mostrar su contraseña.
-    - El botón redondo deberá de tener forma redonda.
-    - El botón ayuda deberá mostrar un icono de ayuda.
+Divide el proyecto en dos paquetes diferenciados según su función: `VistaControlador` y `Modelo`
+- Mejora el ejercicio anterior agregando un *checkbox* que en caso de estar marcado solo permita mostrar números **primos** entre los valores requeridos.
+- Agrega en el *menú edición* los siguentes elementos: 
+
+    - Una opción llamada **historial** que permita ver los últimos números generados en una ventana modal (*JDialog*) usando una lista (*JList*). Puedes editar la disposición de dicha ventana de diálogo desde el editor de Netbeans en la pestaña del *Navigator* en *Other Components*. 
+    - Una opción para **guardar** el historial del listado generado en un fichero de texto mediante un *JFileChooser*. Se deberá verificar si ya existe un fichero con el mismo nombre antes de sobreescribirlo.
+    - Otra última opción llamada *borrar todo* para eliminar el listado guardado del historial.  
+
+- Busca la forma de forzar la creación del .jar al compilar (no solo al construir el proyecto).
+
+## Pruebas (testing)
+
+Crea el fichero de pruebas en la carpeta *TEST* del repositorio en un fichero llamado *resultado_pruebas.md*.
+
+| ID Caso Prueba | Descripción Caso de Prueba                     | Entrada                                 | Salida Esperada                                                           | Resultado   |
+|----------------|-----------------------------------------------|-----------------------------------------|---------------------------------------------------------------------------|-------------|
+| 01             | Comprobación del botón "Generar"               | Escribir valores en mínimo y máximo     | Se genera un número aleatorio entre los valores indicados                  | OK/No cumple|
+| 02             | Comprobación valores mínimo y máximo           | Escribir valores en mínimo y máximo     | Se comprueba que el rango mínimo sea menor que máximo                      | OK/No cumple|
+| 03             | Comprobación checkbox "Sólo números primos"    | Escribir valores en mínimo y máximo     | Se comprueba que se generan números primos aleatorios entre los valores indicados | OK/No cumple|
+| 04             | Comprobación del historial                     | Abrir ventana desde el menú edición > historial | Se muestra un historial de todos los valores mostrados en una lista `JList` | OK/No cumple|
+| 05             | Comprobación guardado                          | Abrir desde el menú fichero > guardar   | Se muestra un `JFileChooser` para elegir dónde guardar un fichero con el historial de números generados | OK/No cumple|
+| 06             | Comprobación duplicados                        | Abrir desde el menú fichero > guardar   | Se verifica que el fichero a guardar no exista ya, en cuyo caso pregunta si se desea sobrescribir | OK/No cumple|
+| 07             | Estructura de proyecto                        | -   | División del proyecto en paquetes del MVC | OK/No cumple|
+| 08             | Comprobación fichero `jar`                        | Proyecto a empaquetar   | Se genera y prueba el fichero `jar` empaquetado | OK/No cumple|
+| 09             | Creación de branches                        | Parte 1 y parte 2   | Se crean al menos dos branches en el repositorio github | OK/No cumple|
+| 10             | Comprobación del botón “Reiniciar” en el menú Edición | Seleccionar “Reiniciar” en el menú | Se vacían los campos y se restablece el estado inicial de la ventana | OK/No cumple |
+| 11             | Comprobación de opción “Borrar todo” | Seleccionar “Borrar todo” en el menú Edición | Se elimina el historial mostrado y/o guardado | OK/No cumple |
+
+ 
+## Parte 3 
+
+Amplía tu proyecto implementando una **prueba automatizada** de interfaz gráfica (GUI test) utilizando la librería *AssertJ Swing*.
+
+El objetivo es comprobar de forma programática que el generador de números aleatorios funciona correctamente cuando el usuario introduce valores en los campos JSpinner y pulsa el botón “Generar”.
+
+1. Asegúrate de incluir las dependencias de *AssertJ Swing* y *JUnit 4* en tu proyecto editando el fichero `pom.xml`.
+
+2. Asegúrate de que los elementos que vayas a tester tengan identificadores (names) asignados a los componentes que vayas a testear.
 
 ```java
-// para hacer un botón redondo o mostrar un botón de ayuda de entre distintas propiedades de Flatlaf
-boton.putClientProperty(FlatClientProperties.BUTTON_TYPE, FlatClientProperties.BUTTON_TYPE_ROUND_RECT); 
-boton.putClientProperty(FlatClientProperties.BUTTON_TYPE, FlatClientProperties.BUTTON_TYPE_HELP);
-````
+spinnerMin.setName("spinnerMin");
+spinnerMax.setName("spinnerMax");
+botonGenerar.setName("botonGenerar");
+campoResultado.setName("campoResultado");
+```
 
-![](media/b659313c2f89bf08a4f35281a33b65c4.png)
+3. Debes crear en el paquete de VistaControaldor una nueva **clase de prueba** en *Test Packages>new Java Class* que se llame como la clase principal del *JFrame()* acabada en Test.
 
-## Pruebas (testing) 
+4. Código de prueba propuesto:
 
-| ID Caso Prueba | Descripción Caso de Prueba                       | Entrada / Acción                                       | Salida Esperada                                                                                 | Resultado    |
-| -------------- | ------------------------------------------------ | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------- | ------------ |
-| 01             | Verificar campos de texto (`JTextField`)         | Escribir texto en el primer campo                      | Se duplica en la otra mitad en orden inverso                                                    | OK/No cumple |
-| 02             | Verificar campos de texto (`JTextField`)         | Escribir texto en el segundo campo                     | Se duplica igual en la otra mitad                                                               | OK/No cumple |
-| 03             | Verificar campo contraseña (`JPasswordField`)    | Escribir una contraseña                                | Se duplica en la otra mitad (oculta). Permite mostrar u ocultar el texto con el botón integrado | OK/No cumple |
-| 04             | Verificar botones (`JButton`)                    | Pulsar los botones                                     | Su acción se refleja en el botón duplicado                                                      | OK/No cumple |
-| 05             | Verificar botón redondo (`FlatLaf`)              | Observar el botón redondo                              | Tiene forma redonda según la propiedad FlatLaf                                                  | OK/No cumple |
-| 06             | Verificar botón de ayuda (`FlatLaf`)             | Pulsar el botón ayuda                                  | Muestra un icono de ayuda y/o mensaje emergente                                                 | OK/No cumple |
-| 07             | Verificar Radio Buttons (`JRadioButton`)         | Cambiar la selección de un grupo de radio buttons      | Se duplica en la otra mitad y se respeta la exclusividad de grupo                               | OK/No cumple |
-| 08             | Verificar Casillas de verificación (`JCheckBox`) | Marcar y desmarcar una casilla                         | Se duplica el estado en la otra mitad                                                           | OK/No cumple |
-| 09             | Verificar Listado (`JComboBox`)                  | Cambiar el valor seleccionado                          | Se actualiza en la otra mitad                                                                   | OK/No cumple |
-| 10             | Verificar Spinner (`JSpinner`)                   | Cambiar el valor                                       | Se duplica el valor en la otra mitad                                                            | OK/No cumple |
-| 11             | Verificar Barra deslizadora (`JSlider`)          | Deslizar la barra                                      | Se duplica en la otra mitad y se muestra el porcentaje                                          | OK/No cumple |
-| 12             | Verificar `JSplitPane`                           | Cambiar el tamaño de las divisiones                    | Se refleja el color o posición en ambas mitades                                                 | OK/No cumple |
-| 13             | Verificar Menú “Archivo”                         | Desplegar el menú                                      | Se muestran las opciones correspondientes                                                       | OK/No cumple |
-| 14             | Verificar Menú “Edición → Borrar todo”           | Seleccionar “Borrar todo”                              | Todos los campos y selecciones se restablecen                                                   | OK/No cumple |
-| 15             | Verificar Barra de estado (`JPanel` inferior)    | Realizar distintas acciones                            | Muestra mensajes contextuales (validación, acciones, etc.)                                      | OK/No cumple |
-| 16             | Validación campo correo (incorrecto)             | Escribir correo sin formato válido                     | Se muestra borde rojo                                                                           | OK/No cumple |
-| 17             | Validación campo correo (correcto)               | Escribir correo con formato correcto (con @ y dominio) | Borde normal, se marca checkbox verde y muestra mensaje en barra de estado                      | OK/No cumple |
+```java
+import static org.assertj.core.api.Assertions.assertThat;
+
+import org.assertj.swing.annotation.GUITest;
+import org.assertj.swing.edt.FailOnThreadViolationRepaintManager;
+import org.assertj.swing.fixture.FrameFixture;
+import org.junit.jupiter.api.*;
+
+public class GeneradorNumerosTest {
+
+    private FrameFixture ventana;
+
+   @Before
+    public void setUp() {
+        // Comprobar que las acciones Swing se hacen en el hilo correcto
+        FailOnThreadViolationRepaintManager.install();
+
+        // Inicializar la ventana de prueba en el EDT
+        GeneraNumeros frame = GuiActionRunner.execute(() -> new GeneraNumeros()); // <-- Creación segura de la instancia
+        
+        // Inicializar el FrameFixture
+        ventana = new FrameFixture(frame); 
+        
+        // Mostrar la ventana en el EDT
+        ventana.show(); 
+    }
+
+    @After
+    void tearDown() {
+        // Cierra la ventana después de cada prueba
+        ventana.cleanUp();
+    }
+
+    @Test
+    public void deberiaGenerarNumeroAleatorioEntreValoresSpinner() {
+        // Introduce los valores en los spinners
+        ventana.spinner("spinnerMin").enterText("5");
+        ventana.spinner("spinnerMax").enterText("10");
+
+        // Pulsa el botón "Generar"
+        ventana.button("botonGenerar").click();
+
+        // Obtiene el resultado mostrado en el JTextField
+        String textoResultado = ventana.textBox("campoResultado").text();
+
+        // Convierte el resultado a número y comprueba el rango
+        int valor = Integer.parseInt(textoResultado);
+        assertThat(valor)
+            .as("El número generado debe estar entre 5 y 10")
+            .isBetween(5, 10);
+    }
+}
+```
+
+5. Para ejecutar la prueba haz clic sobre la clase y en el menú contextual en *Test File*
+
+6. Agrega dicho caso automatizado a la tabla de pruebas anterior.
+
+
 

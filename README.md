@@ -154,7 +154,7 @@ También puedes empaquetar el proyecto desde una terminal situada en la carpeta 
 mvn clean package
 ```
 
-## Pruebas (testing)
+## Parte 3 Pruebas (testing)
 
 En este apartado vamos a tratar con pruebas unitarias y pruebas automatizadas sobre la interfaz.
 

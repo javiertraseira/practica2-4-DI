@@ -82,7 +82,8 @@ Dentro del menú **edición**:
 
 ![](media/ba18dcfdd7fd2df3ed8dfe1cefa04f24.png)
 
-## Parte 2 Números primos, historial y ficheros
+
+## Parte 2 Números primos, historial y ficheros. Empaquetado
 
 Amplía ahora la aplicación con nuevas funcionalidades.
 
@@ -128,38 +129,96 @@ Se deberá verificar si ya existe un fichero con el mismo nombre antes de sobree
 
 > No olvides gestionar los errores mediante try-catch dentro del código de la aplicación.
 
+
+### Empaquetado y ejecución
+
+Una vez terminada la aplicación vamos a generar el fichero distribuible del proyecto.
+
+En un proyecto Maven, el resultado del empaquetado será normalmente un fichero `jar` que se generará dentro de la carpeta `target`.
+
+Desde Netbeans:
+
+- Haz clic derecho sobre el proyecto.
+- Selecciona *Clean and Build*.
+- Comprueba en la ventana Output que aparece: BUILD SUCCESS
+
+Ahora comprueba que puedes ejecutarlo desde consola con:
+
+```
+java -jar nombre-del-fichero.jar
+```
+
+También puedes empaquetar el proyecto desde una terminal situada en la carpeta donde está el *pom.xml* usando el comando mvn, si has instalado previamente **Maven** en tu sistema operativo:
+
+```
+mvn clean package
+```
+
 ## Pruebas (testing)
 
-### Pruebas unitarias
+En este apartado vamos a tratar con pruebas unitarias y pruebas automatizadas sobre la interfaz.
+
+### Pruebas unitarias de la lógica
+
+En esta parte se crearán **pruebas automatizadas sobre las clases del paquete `Modelo`**, sin necesidad de abrir ninguna ventana.
+
+Añade al proyecto la dependencia de **JUnit 5** con ámbito de test en el fichero `pom.xml`
+
+Crea dentro de `Test Packages` una clase llamada `GeneradorNumerosTest` 
+
+**Prueba del método esPrimo()**
+
+Implementa pruebas que comprueben al menos los siguientes casos:
+
+```text
+2   → primo
+7   → primo
+4   → no primo
+15  → no primo
+1   → no primo
+0   → no primo
+```
+
+Por ejemplo:
+
+```java
+@Test
+void numeroSieteDebeSerPrimo() {
+    GeneradorNumeros generador = new GeneradorNumeros();
+
+    assertTrue(generador.esPrimo(7));
+}
+```
+
+**Prueba de generación dentro del rango**
+
+Crea una prueba que genere números repetidamente y compruebe que todos ellos están dentro del rango indicado.
+
+Por ejemplo:
+
+```text
+mínimo = 5
+máximo = 10
+```
+
+Todos los resultados deberán cumplir:
+
+```text
+5 <= resultado <= 10
+```
+
+Realiza la comprobación varias veces dentro de la misma prueba.
 
 
-
-Crea el fichero de pruebas en la carpeta *TEST* del repositorio en un fichero llamado *resultado_pruebas.md*.
-
-| ID Caso Prueba | Descripción Caso de Prueba                     | Entrada                                 | Salida Esperada                                                           | Resultado   |
-|----------------|-----------------------------------------------|-----------------------------------------|---------------------------------------------------------------------------|-------------|
-| 01             | Comprobación del botón "Generar"               | Escribir valores en mínimo y máximo     | Se genera un número aleatorio entre los valores indicados                  | OK/No cumple|
-| 02             | Comprobación valores mínimo y máximo           | Escribir valores en mínimo y máximo     | Se comprueba que el rango mínimo sea menor que máximo                      | OK/No cumple|
-| 03             | Comprobación checkbox "Sólo números primos"    | Escribir valores en mínimo y máximo     | Se comprueba que se generan números primos aleatorios entre los valores indicados | OK/No cumple|
-| 04             | Comprobación del historial                     | Abrir ventana desde el menú edición > historial | Se muestra un historial de todos los valores mostrados en una lista `JList` | OK/No cumple|
-| 05             | Comprobación guardado                          | Abrir desde el menú fichero > guardar   | Se muestra un `JFileChooser` para elegir dónde guardar un fichero con el historial de números generados | OK/No cumple|
-| 06             | Comprobación duplicados                        | Abrir desde el menú fichero > guardar   | Se verifica que el fichero a guardar no exista ya, en cuyo caso pregunta si se desea sobrescribir | OK/No cumple|
-| 07             | Estructura de proyecto                        | -   | División del proyecto en paquetes del MVC | OK/No cumple|
-| 08             | Comprobación fichero `jar`                        | Proyecto a empaquetar   | Se genera y prueba el fichero `jar` empaquetado | OK/No cumple|
-| 09             | Creación de branches                        | Parte 1 y parte 2   | Se crean al menos dos branches en el repositorio github | OK/No cumple|
-| 10             | Comprobación del botón “Reiniciar” en el menú Edición | Seleccionar “Reiniciar” en el menú | Se vacían los campos y se restablece el estado inicial de la ventana | OK/No cumple |
-| 11             | Comprobación de opción “Borrar todo” | Seleccionar “Borrar todo” en el menú Edición | Se elimina el historial mostrado y/o guardado | OK/No cumple |
-
- 
 ### Prueba automatizada de la interfaz
 
-Amplía tu proyecto implementando una **prueba automatizada** de interfaz gráfica (GUI test) utilizando la librería *AssertJ Swing*.
+Finalmente, realiza una prueba automatizada de la interfaz utilizando la librería **AssertJ Swing**.
 
 El objetivo es comprobar de forma programática que el generador de números aleatorios funciona correctamente cuando el usuario introduce valores en los campos JSpinner y pulsa el botón “Generar”.
 
 1. Asegúrate de incluir las dependencias de *AssertJ Swing* y *JUnit 4* en tu proyecto editando el fichero `pom.xml`.
 
-2. Asegúrate de que los elementos que vayas a tester tengan identificadores (names) asignados a los componentes que vayas a testear.
+2. Asegúrate de que los elementos que vayas a testear tengan identificadores (names) asignados a los componentes que vayas a testear para que AssertJ Swing los localice:
 
 ```java
 spinnerMin.setName("spinnerMin");
@@ -168,9 +227,11 @@ botonGenerar.setName("botonGenerar");
 campoResultado.setName("campoResultado");
 ```
 
+> Estos identificadores son independientes del nombre de la variable Java, aunque resulta recomendable que ambos sean similares.
+
 3. Debes crear en el paquete de VistaControaldor una nueva **clase de prueba** en *Test Packages>new Java Class* que se llame como la clase principal del *JFrame()* acabada en Test.
 
-4. Código de prueba propuesto:
+4. Código de prueba propuesto (orientativo):
 
 ```java
 import static org.assertj.core.api.Assertions.assertThat;

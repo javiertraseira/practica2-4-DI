@@ -19,10 +19,10 @@ El proyecto deberá utilizar **FlatLaf**, añadiendo la dependencia correspondie
 
 Desde el comienzo se organizarán las clases en dos paquetes:
 
-```text
+```
 Modelo
 VistaControlador
-``
+```
 
 Utiliza ramas para separar las distintas partes de la práctica:
 
@@ -31,11 +31,26 @@ Utiliza ramas para separar las distintas partes de la práctica:
 - `parte-3`
 - `parte-4`
 
+
 ## Parte 1 Generador de números aleatorios
 
-Crear una interfaz mixta utilizando *FlatLaf* con los elementos indicados para un generador de números aleatorios gráfico. Utiliza el elemento *JSpinner* que mostrará el número aleatorio generado entre esos dos números en un campo *JTextField* al pulsar el botón generar.
+Crea mediante el editor visual de Apache NetBeans una ventana que permita generar un número aleatorio dentro de un rango indicado por el usuario.
 
-La ventana deberá tener además un **menú** con los elementos Fichero y Edición. El menú fichero deberá tener por el momento un elemento salir y el menú *Edición* un elemento que permita reiniciar el contenido de los campos de la ventana.
+La interfaz deberá contener como mínimo:
+
+- un `JSpinner` para indicar el valor mínimo;
+- un `JSpinner` para indicar el valor máximo;
+- un `JButton` denominado **Generar**;
+- un `JTextField` no editable para mostrar el resultado;
+- una barra de menú mediante `JMenuBar`.
+
+La aplicación deberá iniciarse utilizando **FlatLaf**.
+
+### Generación de números aleatorios
+
+Crea dentro del paquete `Modelo` una clase llamada `GeneradorNumeros`
+
+> ⚠️ La generación del número aleatorio **no deberá realizarse directamente dentro del evento del botón**.
 
 Ayúdate de la función `Math.random()` entre dos números o de la clase `radom` así como de una **clase auxiliar** para realizar dichos cálculos.
 
@@ -46,26 +61,78 @@ Math.random() * (max - min + 1) + (min)
 ```java
 Random rnd = new Random();
 rnd.nextDouble() * max + min
-
 ```
 
-Verifica dónde se crea el fichero de empaquetado del proyecto `jar` al contruir el proyecto y ejecútalo desde la consola usando los comandos adecuados.
+Antes de realizar la generación deberá verificarse si el rango indicado es correcto, o deberá mostrarse un mensaje mediante `JOptionPane`.
+
+### Menú de la aplicación
+
+Añade los siguientes menús:
+
+```text
+Fichero
+Edición
+```
+
+Dentro del menú **Fichero**:
+- La opción **salir** que deberá cerrar la aplicación.
+
+Dentro del menú **edición**:
+- La opción **Reiniciar** deberá restablecer los valores de los `JSpinner` y devolver los campos de la aplicación a su estado inicial.
 
 ![](media/ba18dcfdd7fd2df3ed8dfe1cefa04f24.png)
 
-## Parte 2
+## Parte 2 Números primos, historial y ficheros
 
-Divide el proyecto en dos paquetes diferenciados según su función: `VistaControlador` y `Modelo`
-- Mejora el ejercicio anterior agregando un *checkbox* que en caso de estar marcado solo permita mostrar números **primos** entre los valores requeridos.
-- Agrega en el *menú edición* los siguentes elementos: 
+Amplía ahora la aplicación con nuevas funcionalidades.
 
-    - Una opción llamada **historial** que permita ver los últimos números generados en una ventana modal (*JDialog*) usando una lista (*JList*). Puedes editar la disposición de dicha ventana de diálogo desde el editor de Netbeans en la pestaña del *Navigator* en *Other Components*. 
-    - Una opción para **guardar** el historial del listado generado en un fichero de texto mediante un *JFileChooser*. Se deberá verificar si ya existe un fichero con el mismo nombre antes de sobreescribirlo.
-    - Otra última opción llamada *borrar todo* para eliminar el listado guardado del historial.  
+### Generación de números primos 
 
-- Busca la forma de forzar la creación del .jar al compilar (no solo al construir el proyecto).
+Agrega un *checkbox* que en caso de estar marcado solo permita mostrar números **primos** entre los rangos indicados.
+
+La comprobación de si un número es primo deberá realizarse completamente dentro del paquete `Modelo`.
+
+### Historial de números generados
+
+Agrega en el *menú edición* la siguiente opción: 
+- Una opción llamada **historial** que permita ver los últimos números generados.
+- Otra opción llamada **borrar todo** para eliminar el listado guardado del historial.
+
+Para ello deberás utilizar en una ventana modal (*JDialog*). Esta ventana conted´ra una lista (*JList*). Puedes editar la disposición de dicha ventana de diálogo desde el editor de Netbeans en la pestaña del *Navigator* en *Other Components*. 
+
+Puedes utilizar una colección como ``ArrayList<Integer>``  para almacenarlos.
+
+El historial deberá pertenecer a la lógica de la aplicación y no únicamente a los componentes gráficos.
+
+Antes de borrar el contenido del historial la operación deberá solicitar confirmación mediante un `JOptionPane`.
+
+### Guardar historial en un fichero
+
+Agrega en el *menú fichero* la opción **guardar historial**.
+
+Para guardar dicho historial del listado se ha de utilizar un *JFileChooser* para permitir al usuario seleccionar la ubicación y el nombre del fichero. 
+
+El historial deberá guardarse en un fichero de texto.
+
+Por ejemplo:
+
+```text
+Historial de números generados:
+23
+17
+41
+8
+```
+
+Se deberá verificar si ya existe un fichero con el mismo nombre antes de sobreescribirlo.  
+
+> No olvides gestionar los errores mediante try-catch dentro del código de la aplicación.
 
 ## Pruebas (testing)
+
+### Pruebas unitarias
+
+
 
 Crea el fichero de pruebas en la carpeta *TEST* del repositorio en un fichero llamado *resultado_pruebas.md*.
 
@@ -84,7 +151,7 @@ Crea el fichero de pruebas en la carpeta *TEST* del repositorio en un fichero ll
 | 11             | Comprobación de opción “Borrar todo” | Seleccionar “Borrar todo” en el menú Edición | Se elimina el historial mostrado y/o guardado | OK/No cumple |
 
  
-## Parte 3 
+### Prueba automatizada de la interfaz
 
 Amplía tu proyecto implementando una **prueba automatizada** de interfaz gráfica (GUI test) utilizando la librería *AssertJ Swing*.
 

@@ -29,7 +29,6 @@ Utiliza ramas para separar las distintas partes de la práctica:
 - `parte-1`
 - `parte-2`
 - `parte-3`
-- `parte-4`
 
 
 ## Parte 1 Generador de números aleatorios
@@ -95,15 +94,15 @@ La comprobación de si un número es primo deberá realizarse completamente dent
 
 ### Historial de números generados
 
-Agrega en el *menú edición* la siguiente opción: 
+Agrega en el *menú edición* las siguientes opciones: 
 - Una opción llamada **historial** que permita ver los últimos números generados.
 - Otra opción llamada **borrar todo** para eliminar el listado guardado del historial.
 
-Para ello deberás utilizar en una ventana modal (*JDialog*). Esta ventana conted´ra una lista (*JList*). Puedes editar la disposición de dicha ventana de diálogo desde el editor de Netbeans en la pestaña del *Navigator* en *Other Components*. 
+Para ello deberás utilizar en una ventana modal (`JDialog`). Esta ventana conted´ra una lista (`JList`). Puedes editar la disposición de dicha ventana de diálogo desde el editor de Netbeans en la pestaña del *Navigator* en *Other Components*. 
 
 Puedes utilizar una colección como ``ArrayList<Integer>``  para almacenarlos.
 
-El historial deberá pertenecer a la lógica de la aplicación y no únicamente a los componentes gráficos.
+El historial deberá pertenecer a la **lógica** de la aplicación y no únicamente a los componentes gráficos.
 
 Antes de borrar el contenido del historial la operación deberá solicitar confirmación mediante un `JOptionPane`.
 
@@ -111,7 +110,7 @@ Antes de borrar el contenido del historial la operación deberá solicitar confi
 
 Agrega en el *menú fichero* la opción **guardar historial**.
 
-Para guardar dicho historial del listado se ha de utilizar un *JFileChooser* para permitir al usuario seleccionar la ubicación y el nombre del fichero. 
+Para guardar dicho historial del listado se ha de utilizar un `JFileChooser` para permitir al usuario seleccionar la ubicación y el nombre del fichero. 
 
 El historial deberá guardarse en un fichero de texto.
 
@@ -292,4 +291,49 @@ public class GeneradorNumerosTest {
 6. Agrega dicho caso automatizado a la tabla de pruebas anterior.
 
 
+## Documentación y entrega
 
+### Documentación
+
+Crea una carpeta `docs` en el repositorio y dentro un archivo `index.md`.
+
+Que incluya como mínimo:
+
+- Nombre del proyecto
+- Descripción: Breve explicación de la aplicación desarrollada.
+- Listado de Funcionalidades: Lista de las principales características implementadas.
+- Capturas de la aplicación.
+- Tipos de pruebas realizadas.
+- Explica cómo y dónde ejecutar la aplicación.
+
+Explica brevemente la función de los paquetes:
+
+- Modelo
+- VistaControlador
+
+
+### Entrega
+
+Antes de entregar la práctica comprueba:
+
+- [ ] El proyecto utiliza Maven.
+- [ ] FlatLaf está configurado correctamente.
+- [ ] El código está organizado en `Modelo` y `VistaControlador`.
+- [ ] La generación de números se realiza fuera del `JFrame`.
+- [ ] El rango mínimo y máximo se valida correctamente.
+- [ ] La aplicación puede generar únicamente números primos.
+- [ ] Se contempla un rango sin números primos.
+- [ ] El historial almacena todos los resultados generados.
+- [ ] El historial puede visualizarse mediante un `JDialog`.
+- [ ] El historial puede borrarse.
+- [ ] El historial puede guardarse mediante `JFileChooser`.
+- [ ] Se solicita confirmación antes de sobrescribir un fichero.
+- [ ] Los posibles errores de escritura se gestionan correctamente.
+- [ ] Existen pruebas unitarias para la lógica del modelo.
+- [ ] Existe al menos una prueba automatizada de interfaz con AssertJ Swing.
+- [ ] Los componentes utilizados por AssertJ Swing tienen asignado un `name`.
+- [ ] Maven genera correctamente el fichero `.jar`.
+- [ ] El `.jar` puede ejecutarse desde consola.
+- [ ] El `README.md` está actualizado.
+- [ ] Las pruebas manuales están documentadas.
+- [ ] Las ramas de trabajo se han integrado correctamente en `main`.

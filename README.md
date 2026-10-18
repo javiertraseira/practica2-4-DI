@@ -1,10 +1,37 @@
 # Práctica 2.4 Generador de números aleatorios
 
-El objetivo de esta práctica es la de diseñar y desarrollar una aplicación gráfica que permita generar números aleatorios dentro de un rango definido por el usuario, aplicando los principios de separación de lógica en paquetes (Modelo y VistaControlador) y buenas prácticas de organización en proyectos Java. Además se aprenderá a crear pruebas automatizadas para testear apartados de la interfaz.
+El objetivo de esta práctica es la de diseñar y desarrollar una aplicación gráfica que permita generar **números aleatorios** dentro de un **rango** definido por el usuario, aplicando los principios de separación básica entre la interfaz y la lógica de la aplicación (Modelo y VistaControlador).
 
-Crea un proyecto llamado *practica2-5* en la carpeta SOL de github. Utiliza *branches* para delimitar los cambios que vayas haciendo.
+Durante la práctica se trabajará con componentes Swing, FlatLaf, colecciones, diálogos, lectura y escritura de ficheros y empaquetado de aplicaciones Maven.
 
-## Parte 1
+Además, se introducirán dos niveles diferentes de pruebas automatizadas:
+
+- pruebas unitarias para comprobar la lógica de la aplicación;
+- pruebas de interfaz gráfica para comprobar la interacción del usuario con la ventana.
+
+## Preparación del proyecto
+
+Crea dentro de la carpeta `SOL` de tu repositorio local un nuevo proyecto Maven de Apache NetBeans llamado:
+
+`practica2-4`
+
+El proyecto deberá utilizar **FlatLaf**, añadiendo la dependencia correspondiente mediante Maven.
+
+Desde el comienzo se organizarán las clases en dos paquetes:
+
+```text
+Modelo
+VistaControlador
+``
+
+Utiliza ramas para separar las distintas partes de la práctica:
+
+- `parte-1`
+- `parte-2`
+- `parte-3`
+- `parte-4`
+
+## Parte 1 Generador de números aleatorios
 
 Crear una interfaz mixta utilizando *FlatLaf* con los elementos indicados para un generador de números aleatorios gráfico. Utiliza el elemento *JSpinner* que mostrará el número aleatorio generado entre esos dos números en un campo *JTextField* al pulsar el botón generar.
 

@@ -1,12 +1,12 @@
-# Práctica 2.4 Generador de números aleatorios
+# Práctica 2.4 Generador de números aleatorios y pruebas automatizadas
 
 El objetivo de esta práctica es la de diseñar y desarrollar una aplicación gráfica que permita generar **números aleatorios** dentro de un **rango** definido por el usuario, aplicando los principios de separación básica entre la interfaz y la lógica de la aplicación (Modelo y VistaControlador).
 
 Durante la práctica se trabajará con componentes Swing, FlatLaf, colecciones, diálogos, lectura y escritura de ficheros y empaquetado de aplicaciones Maven.
 
-Además, se introducirán dos niveles diferentes de pruebas automatizadas:
+Además, se introducirán dos niveles diferentes de **pruebas** automatizadas:
 
-- pruebas unitarias para comprobar la lógica de la aplicación;
+- pruebas unitarias para comprobar la lógica de la aplicación.
 - pruebas de interfaz gráfica para comprobar la interacción del usuario con la ventana.
 
 ## Preparación del proyecto

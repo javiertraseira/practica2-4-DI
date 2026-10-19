@@ -98,13 +98,14 @@ Agrega en el *menú edición* las siguientes opciones:
 - Una opción llamada **historial** que permita ver los últimos números generados.
 - Otra opción llamada **borrar todo** para eliminar el listado guardado del historial.
 
-Para ello deberás utilizar en una ventana modal (`JDialog`). Esta ventana conted´ra una lista (`JList`). Puedes editar la disposición de dicha ventana de diálogo desde el editor de Netbeans en la pestaña del *Navigator* en *Other Components*. 
-
-Puedes utilizar una colección como ``ArrayList<Integer>``  para almacenarlos.
-
-El historial deberá pertenecer a la **lógica** de la aplicación y no únicamente a los componentes gráficos.
-
 Antes de borrar el contenido del historial la operación deberá solicitar confirmación mediante un `JOptionPane`.
+
+Para ello deberás utilizar en una ventana modal (`JDialog`). Esta ventana contedrá una lista (`JList`). Puedes editar la disposición de dicha ventana de diálogo desde el editor de Netbeans en la pestaña del *Navigator* en *Other Components*. 
+
+Puedes utilizar una colección como ``ArrayList<Integer>`` para almacenarlos.
+
+El historial deberá pertenecer a la **lógica** de la aplicación y no únicamente en los componentes gráficos, es decir, el historial no debería almacenarse únicamente en el JFrame.
+
 
 ### Guardar historial en un fichero
 

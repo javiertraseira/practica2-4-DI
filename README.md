@@ -6,8 +6,8 @@ Durante la práctica se trabajará con componentes Swing, FlatLaf, colecciones, 
 
 Además, se introducirán dos niveles diferentes de **pruebas** automatizadas:
 
-- pruebas unitarias para comprobar la lógica de la aplicación.
-- pruebas de interfaz gráfica para comprobar la interacción del usuario con la ventana.
+- pruebas **unitarias** para comprobar la lógica de la aplicación.
+- pruebas de **interfaz gráfica** para comprobar la interacción del usuario con la ventana.
 
 ## Preparación del proyecto
 

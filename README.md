@@ -162,7 +162,7 @@ En este apartado vamos a tratar con pruebas unitarias y pruebas automatizadas so
 
 En esta parte se crearán **pruebas automatizadas sobre las clases del paquete `Modelo`**, sin necesidad de abrir ninguna ventana.
 
-Añade al proyecto la dependencia de **JUnit 5** con ámbito de test en el fichero `pom.xml`
+Añade al proyecto la dependencia de **JUnit 4** con ámbito de test en el fichero `pom.xml`
 
 Crea dentro de `Test Packages` una clase llamada `GeneradorNumerosTest` 
 

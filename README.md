@@ -15,6 +15,8 @@ Crea dentro de la carpeta `SOL` de tu repositorio local un nuevo proyecto Maven 
 
 `practica2-4`
 
+Utiliza la versión de Java 21 LTS en tu proyecto.
+
 El proyecto deberá utilizar **FlatLaf**, añadiendo la dependencia correspondiente mediante Maven.
 
 Desde el comienzo se organizarán las clases en dos paquetes:
